@@ -1,6 +1,6 @@
 "use server"
 
-import { eq, sql } from "drizzle-orm";
+import { eq } from "drizzle-orm";
 import { flattenValidationErrors } from "next-safe-action";
 import { redirect } from "next/navigation";
 
@@ -30,7 +30,7 @@ export const saveCustomerAction = actionClient
         const result = await db.insert(customers).values({
             firstName: customer.firstName,
             lastName: customer.lastName,
-            email: customer.email,
+            email: customer.email.toLowerCase(),
             phone: customer.phone,
             address1: customer.address1,
             ...(customer.address2?.trim() ? { address2: customer.address2 } : {}),

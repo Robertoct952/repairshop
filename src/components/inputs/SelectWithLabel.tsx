@@ -15,7 +15,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Item } from "@radix-ui/react-dropdown-menu";
 
 type DataObj = {
   id: string;
